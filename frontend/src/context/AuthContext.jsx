@@ -22,7 +22,7 @@ export function AuthProvider({ children }) {
 
   // Connexion: envoie email + password à l'API et récupère le token JWT
   const login = async (password) => {
-    const res = await fetch("http://localhost:8000/api/login", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL || "https://bistrot-app-production.up.railway.app"}/api/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: "admin@bistrot.fr", password }),
